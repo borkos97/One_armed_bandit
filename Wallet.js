@@ -13,8 +13,8 @@ class Wallet {
             if(typeof value === "number" && !isNaN(value)) {
                 if(type === "+") return _money += value
                 else if (type === "-") return _money -= value
-                else throw new Error("Nie poprawne działanie")
-            } else throw new Error("nie poprawna wartość");
+                else throw new Error("Incorrect operation")
+            } else throw new Error("Incorrect value");
         }
     }
 }

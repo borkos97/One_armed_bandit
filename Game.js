@@ -21,8 +21,8 @@ class Game {
             board.style.backgroundColor = colors[index]
         })
         this.spanWallet.textContent = money;
-        if(result) result = `Wygrałeś ${wonMoney}$`
-        else if (!result && result !== "") result = `Przegrałeś ${bid}$`
+        if(result) result = `You won ${wonMoney}$`
+        else if (!result && result !== "") result = `You lose ${bid}$`
         this.spanResult.textContent = result;
         this.spanGames.textContent = stats[0];
         this.spanWins.textContent = stats[1];
@@ -31,9 +31,9 @@ class Game {
     }
     startGame() {
 
-        if(this.inputBid.value < 1) return alert("Za mało środków")
+        if(this.inputBid.value < 1) return alert("Not enough money")
         const bid = Math.floor(this.inputBid.value)
-        if(!this.wallet.checkCanPlay(bid)) return alert("Masz za mało środków lub podano nei prawidłową wartość")
+        if(!this.wallet.checkCanPlay(bid)) return alert("You have not enough money or entered value is not correct")
         this.wallet.changeWallet(bid, '-')
 
         this.draw = new Draw();
